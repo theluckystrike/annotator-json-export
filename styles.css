@@ -1,0 +1,49 @@
+.annotator-export-modal {
+	width: min(780px, 94vw);
+}
+
+.aje-rows {
+	max-height: 42vh;
+	overflow: auto;
+}
+
+.aje-row {
+	padding: 10px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	margin-bottom: 8px;
+}
+
+.aje-row label, .aje-option {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.aje-row p {
+	margin: 6px 0;
+}
+
+.aje-row pre {
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+	font-size: 12px;
+}
+
+.aje-errors {
+	color: var(--text-error);
+}
+
+.aje-option {
+	margin: 12px 0;
+}
+
+.aje-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+.aje-status {
+	color: var(--text-success);
+}

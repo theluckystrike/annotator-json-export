@@ -1,0 +1,11 @@
+{
+	"id": "annotator-json-export",
+	"name": "Annotator JSON Export",
+	"version": "1.0.0",
+	"minAppVersion": "1.13.4",
+	"description": "Export saved annotation notes as a local JSON archive with quotes, comments, and tags.",
+	"author": "Michael Lip",
+	"authorUrl": "https://github.com/theluckystrike",
+	"fundingUrl": "https://github.com/sponsors/theluckystrike",
+	"isDesktopOnly": false
+}

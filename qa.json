@@ -1,0 +1,69 @@
+[
+  {
+    "feature": "active-note",
+    "caption": "Preview three saved annotation rows.",
+    "note": "Research.md",
+    "eval": "(async()=>{ const p = app.plugins.plugins['annotator-json-export']; p.pro.signOut(); await p.openActive(); return 'ok'; })()",
+    "after": "app.plugins.plugins['annotator-json-export'].preview?.close(); 'ok'"
+  },
+  {
+    "feature": "restored-fields",
+    "caption": "Inspect the restored comment, tags, and ID.",
+    "note": "Research.md",
+    "eval": "(async()=>{ const p = app.plugins.plugins['annotator-json-export']; p.pro.signOut(); await p.openActive(); document.querySelector('.aje-row details').open=true; return 'ok'; })()",
+    "after": "app.plugins.plugins['annotator-json-export'].preview?.close(); 'ok'"
+  },
+  {
+    "feature": "saved-json",
+    "caption": "Keep a Unicode selector and vendor fields.",
+    "note": "Unicode.md",
+    "eval": "(async()=>{ const p = app.plugins.plugins['annotator-json-export']; p.pro.signOut(); await p.openActive(); document.querySelector('.aje-row details').open=true; return 'ok'; })()",
+    "after": "app.plugins.plugins['annotator-json-export'].preview?.close(); 'ok'"
+  },
+  {
+    "feature": "parse-errors",
+    "caption": "Review the invalid block before export.",
+    "note": "Errors.md",
+    "eval": "(async()=>{ const p = app.plugins.plugins['annotator-json-export']; p.pro.signOut(); await p.openActive(); return 'ok'; })()",
+    "after": "app.plugins.plugins['annotator-json-export'].preview?.close(); 'ok'"
+  },
+  {
+    "feature": "folder-export",
+    "caption": "Preview annotation notes from the Research folder.",
+    "note": "Research/First.md",
+    "eval": "(async()=>{ const p = app.plugins.plugins['annotator-json-export']; p.pro.opts.http = async () => ({\"status\":200,\"json\":{\"data\":{\"viewer\":{\"login\":\"demo-reader\"},\"user\":{\"sponsorshipForViewerAsSponsor\":{\"isActive\":true,\"isOneTimePayment\":false,\"tier\":{\"name\":\"$5 a month\",\"monthlyPriceInCents\":500}}}}}}); app.secretStorage.setSecret('annotator-json-export-github-token','gho_'+'0'.repeat(36)); await p.pro.refreshNow(); await p.openFolder('Annotator JSON Export/Research'); return 'ok'; })()",
+    "after": "app.plugins.plugins['annotator-json-export'].preview?.close(); 'ok'; app.plugins.plugins['annotator-json-export'].pro.signOut(); 'ok'"
+  },
+  {
+    "feature": "dated-archive",
+    "caption": "Create a dated JSON archive and a Markdown report.",
+    "note": "Errors.md",
+    "eval": "(async()=>{ const p = app.plugins.plugins['annotator-json-export']; p.pro.opts.http = async () => ({\"status\":200,\"json\":{\"data\":{\"viewer\":{\"login\":\"demo-reader\"},\"user\":{\"sponsorshipForViewerAsSponsor\":{\"isActive\":true,\"isOneTimePayment\":false,\"tier\":{\"name\":\"$5 a month\",\"monthlyPriceInCents\":500}}}}}}); app.secretStorage.setSecret('annotator-json-export-github-token','gho_'+'0'.repeat(36)); await p.pro.refreshNow(); await p.openActive(); for(const selector of ['.aje-dated','.aje-ack']) document.querySelector(selector).click(); document.querySelector('.aje-save').click(); await new Promise((resolve,reject)=>{let attempts=0; const poll=()=>{if(document.querySelector('.aje-status')?.textContent.startsWith('Created ')) return resolve(); if(++attempts>100) return reject(new Error('Export did not finish')); setTimeout(poll,50);}; poll();}); return 'ok'; })()",
+    "after": "app.plugins.plugins['annotator-json-export'].preview?.close(); 'ok'; app.plugins.plugins['annotator-json-export'].pro.signOut(); 'ok'"
+  },
+  {
+    "feature": "annotator-json-export",
+    "caption": "Review rows and save an archive.",
+    "frames": [
+      {
+        "note": "Research.md",
+        "eval": "(async()=>{ const p = app.plugins.plugins['annotator-json-export']; p.pro.signOut(); await p.openActive(); return 'ok'; })()",
+        "hold": 1200
+      },
+      {
+        "eval": "document.querySelector('.aje-row details').open=true; 'ok'",
+        "hold": 1400
+      },
+      {
+        "eval": "(async()=>{ document.querySelector('.aje-save').click(); await new Promise((resolve,reject)=>{let attempts=0; const poll=()=>{if(document.querySelector('.aje-status')?.textContent.startsWith('Created ')) return resolve(); if(++attempts>100) return reject(new Error('Export did not finish')); setTimeout(poll,50);}; poll();}); return 'ok'; })()",
+        "hold": 1500
+      },
+      {
+        "note": "Errors.md",
+        "eval": "(async()=>{ const p = app.plugins.plugins['annotator-json-export']; p.pro.signOut(); await p.openActive(); return 'ok'; })()",
+        "hold": 1400
+      }
+    ],
+    "after": "app.plugins.plugins['annotator-json-export'].preview?.close(); 'ok'"
+  }
+]
