@@ -78,7 +78,10 @@ describe('Preview review cases', () => {
 		} finally { plugin.preview?.close(); }
 	});
 	it('collects a large note without the function argument limit', async () => {
-		const plugin = makePlugin({ 'Large.md': ('```annotation-json\n{}\n```\n^row\n').repeat(150000) });
+		// The large text comes from vault.read only: the mock metadata parser overflows the stack on it (Linux CI).
+		const plugin = makePlugin({ 'Large.md': note });
+		const large = ('```annotation-json\n{}\n```\n^row\n').repeat(150000);
+		vi.spyOn(plugin.app.vault, 'read').mockResolvedValue(large);
 		vi.spyOn(ExportPreview.prototype, 'open').mockImplementation(() => undefined);
 		await plugin.openFiles([plugin.app.vault.getFileByPath('Large.md')!], false);
 		try {

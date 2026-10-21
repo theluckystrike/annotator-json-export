@@ -1,7 +1,7 @@
 {
 	"id": "annotator-json-export",
 	"name": "Annotator JSON Export",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"minAppVersion": "1.13.4",
 	"description": "Export saved annotation notes as a local JSON archive with quotes, comments, and tags.",
 	"author": "Michael Lip",

@@ -48,7 +48,9 @@ Select the dated archive checkbox in the preview. The new JSON name includes the
 
 ## Install
 
-For a manual installation, create `<vault>/.obsidian/plugins/annotator-json-export/`. Copy `main.js`, `manifest.json`, and `styles.css` from the release into that folder. Open Obsidian, then enable Annotator JSON Export under Community plugins. This version needs Obsidian 1.13.4 or later.
+Open Settings, then Community plugins, then Browse, and search for "Annotator JSON Export". Select Install, then Enable.
+
+To install by hand, create `<vault>/.obsidian/plugins/annotator-json-export/`. Copy `main.js`, `manifest.json`, and `styles.css` from the release into that folder. Open Obsidian, then enable Annotator JSON Export under Community plugins. This version needs Obsidian 1.13.4 or later.
 
 The source repository includes unit tests and an end-to-end test setup. The four-row test fixture is from elias-sundqvist/obsidian-annotator. Its source license is included with the fixture. The plugin has no UI framework. The export commands use the vault API to create files.
 
@@ -65,6 +67,8 @@ The free output is `Export.json` at the vault root. Existing paths get a numbere
 The preview is a snapshot of the note read at command time. If you edit the note after the preview opens, cancel and run the command again to read the new data. Source notes are not changed by export.
 
 ## Settings
+
+After a minor or major update, this plugin opens one What's new tab in the background. The tab and settings card suggest other NoteMods plugins and Zovo Chat and link to notemods.com for feedback ([privacy](https://notemods.com/privacy/)). The tab sends no data. Turn the tab off in Settings.
 
 The settings tab contains the GitHub Sponsors controls and a short local export explanation. Select “Sign in with GitHub” there to check Pro. The active note command remains available while signed out.
 

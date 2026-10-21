@@ -4,6 +4,8 @@ import type { SponsorsManager } from './license/index';
 import { bindPro, isPro, resetPro, SPONSORS } from './pro';
 import { AnnotatorJsonExportSettingTab } from './settings';
 import { archiveJson, errorReport, fileStamp, parseAnnotations, uniquePath, type Parsed, type Row } from './parser';
+import { setupHello } from './hello/index';
+import WHATS_NEW from './whats-new.json';
 
 export default class AnnotatorJsonExportPlugin extends Plugin {
 	pro: SponsorsManager | null = null;
@@ -14,6 +16,8 @@ export default class AnnotatorJsonExportPlugin extends Plugin {
 	private previewRequest = 0;
 
 	onload(): void {
+		// First: "What's new" reads its state before the settings load (packages/hello). It does not wait.
+		setupHello(this, WHATS_NEW);
 		this.unloaded = false;
 		const pro = createGitHubSponsors(this.app, this.manifest.id, SPONSORS, this);
 		pro.init(); this.pro = pro; bindPro(pro);
