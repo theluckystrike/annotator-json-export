@@ -1,7 +1,7 @@
 import { Modal, Notice, Plugin, normalizePath, type TFile } from 'obsidian';
 import { createGitHubSponsors } from './license/github-obsidian';
 import type { SponsorsManager } from './license/index';
-import { bindPro, isPro, resetPro, SPONSORS } from './pro';
+import { bindPro, isPro, resetPro, SPONSORS, proNotice } from './pro';
 import { AnnotatorJsonExportSettingTab } from './settings';
 import { archiveJson, errorReport, fileStamp, parseAnnotations, uniquePath, type Parsed, type Row } from './parser';
 import { setupHello } from './hello/index';
@@ -43,7 +43,7 @@ export default class AnnotatorJsonExportPlugin extends Plugin {
 
 	requirePro(): boolean {
 		if (isPro()) return true;
-		new Notice('This is a pro feature. Sponsor on GitHub, then sign in from the plugin settings.');
+		proNotice('This is a pro feature.');
 		return false;
 	}
 

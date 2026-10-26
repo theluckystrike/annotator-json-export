@@ -1,7 +1,6 @@
 {
 	"name": "annotator-json-export",
-	"repository": {"type": "git", "url": "theluckystrike/annotator-json-export.git"},
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"private": true,
 	"description": "Export saved annotation notes as a local JSON archive with quotes, comments, and tags.",
 	"main": "main.js",

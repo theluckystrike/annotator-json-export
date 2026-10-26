@@ -1,5 +1,11 @@
 # annotator-json-export
 
+## 1.1.1
+
+### Patch Changes
+
+- The Annotator JSON Export notice for a Pro feature now has a Sponsor on GitHub button.
+
 ## 1.1.0
 
 ### Minor Changes
