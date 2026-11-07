@@ -1,8 +1,9 @@
 {
 	"id": "annotator-json-export",
 	"name": "Annotator JSON Export",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"changes": [
+		"The Pro notice of Annotator JSON Export now says that one payment turns on Pro in every NoteMods plugin.",
 		"The Annotator JSON Export notice for a Pro feature now has a Sponsor on GitHub button."
 	],
 	"tip": "In the preview, clear the checkbox of a row to leave that annotation out of the JSON file.",
